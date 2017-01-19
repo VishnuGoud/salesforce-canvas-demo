@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Callback Refresh Window</title>
+<script type="text/javascript">
+    // on load, check if this is the popup window, pass the hash to the opener and close
+    try {
+        window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
+    } catch (ignore) {}
+    self.close();
+</script>
+</head>
+<body>
+</body>
+</html>

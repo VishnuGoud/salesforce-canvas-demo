@@ -1,0 +1,232 @@
+<html>
+   <head>  
+      <link rel="stylesheet" type="text/css" href="../assets/styles/salesforce-lightning-design-system.css" />
+      <meta charset="utf-8" />
+      <meta http-equiv="x-ua-compatible" content="ie=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />     
+      <title>Early Pay Canvas App</title>
+      <div class="slds-global-header slds-grid slds-grid--align-spread">
+        <div class="slds-global-header__item">
+          <div class="slds-global-header__logo">
+            <img src="../assets/images/logo-noname.svg" alt="" />
+          </div>
+        </div>
+        <div class="slds-global-header__item slds-global-header__item--search">
+          <div class="slds-form-element slds-lookup">
+            <label class="slds-assistive-text" for="global-search-01">Search VGCLOUD</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--left">
+               <svg aria-hidden="true" class="slds-input__icon">
+                 <use xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+               </svg>
+               <input id="global-search-01" class="slds-input slds-lookup__search-input" type="search" placeholder="Search VGCLOUD" />
+            </div>
+          </div>
+        </div>
+        <ul class="slds-global-header__item slds-grid slds-grid--vertical-align-center">
+          <li class="slds-dropdown-trigger slds-dropdown-trigger--click slds-m-left--x-small">
+            <span class="slds-badge" title="person name" id="personName"></span>
+            <span class="slds-avatar slds-avatar--circle slds-avatar--medium">
+              <img src="../assets/images/avatar1.jpg" alt="person name" />
+            </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+   </head>
+   <body ng-app="CanvasApp">
+      <div class="slds" ng-controller="CanvasAppController">
+         <div class="slds-page-header slds-box slds-m-top--x-large slds-badge" role="banner">
+            <div class="slds-grid">
+               <div class="slds-col">
+                  <p class="slds-text-heading--label">WELCOME TO VGCLOUD</p>
+                  <h1 class="slds-text-heading--medium">COMPLETE YOUR EPAY PROCESS</h1>
+               </div>
+               <div class="slds-col slds-no-flex slds-align-middle">
+                  <div class="slds-button-group" role="group">
+                     <button class="slds-button slds-button--neutral">Refresh</button> 
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="myapp">
+            <div class="slds-grid slds-m-top--x-large slds-m-bottom--xx-large">
+               <div class="slds-col slds-size--1-of-1">
+                  <div class="slds-form--horizontal">
+                     <legend class="slds-form-element__label slds-text-title--caps slds-badge slds-m-bottom--x-large">Information receieved from WUEDGE						
+					 </legend>
+                      <legend class="slds-form-element__label slds-text-title--caps slds-badge slds-m-bottom--x-large"><div>oauth access_token = <span id="oauth"></span></div></legend>				 
+                     <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                        <thead>
+                           <tr class="slds-text-title--caps">
+                              <th scope="col">
+                                  <div class="slds-truncate" title="InvoiceId">Invoice Id</div>
+                              </th>
+                              <th scope="col">
+                                 <div class="slds-truncate" title="InvoiceNumber">Invoice Number</div>
+                              </th>
+                              <th scope="col">
+                                 <div class="slds-truncate" title="Buyer">Buyer</div>
+                              </th>
+                              <th scope="col">
+                                 <div class="slds-truncate" title="Seller">Seller</div>
+                              </th>
+                              <!--th scope="col">
+                                 <div class="slds-truncate" title="InitiatedBy">Initiated By</div>
+                              </th-->
+                              <th scope="col">
+                                 <div class="slds-truncate" title="Amount">Amount</div>
+                              </th>
+                              <th scope="col">
+                                  <div class="slds-truncate" title="Currency">Currency</div>
+                              </th>
+                              <th scope="col">
+                                  <div class="slds-truncate" title="InvoiceDueDate">Invoice DueDate</div>
+                              </th>
+                              <th scope="col">
+                                  <div class="slds-truncate" title="InvoiceDate">Invoice Date</div>
+                              </th>
+                              <th scope="col">
+                                 <div class="slds-truncate" title="Status">Status</div>
+                              </th>
+                              <th scope="col">
+                                 <div class="slds-truncate" title="Action">Action</div>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                               <td data-label="InvoiceId">
+                                   <div class="slds-truncate" title="InvoiceId" id="InvoiceId">&nbsp;</div>
+                               </td>
+                              <td data-label="InvoiceNumber">
+                                <div class="slds-truncate" title="InvoiceNumber" id="InvoiceNumber">&nbsp;</div>
+                              </td>
+                              <td data-label="Buyer">
+                                 <div class="slds-truncate" title="Buyer" id="Buyer">&nbsp;</div>
+                              </td>
+                              <td data-label="Seller">
+                                 <div class="slds-truncate" title="Seller" id="Seller">&nbsp;</div>
+                              </td>
+                              <!--td data-label="InitiatedBy">
+                                 <div class="slds-truncate" title="InitiatedBy" id="InitiatedBy">&nbsp;</div>
+                              </td-->
+                              <td data-label="Amount">
+                                 <div class="slds-truncate" title="Amount" id="Amount">&nbsp;</div>
+                              </td>
+                              <td data-label="Currency">
+                                  <div class="slds-truncate" title="Currency" id="Currency">&nbsp;</div>
+                              </td>
+                              <td data-label="InvoiceDuedate">
+                                  <div class="slds-truncate" title="InvoiceDueDate" id="InvoiceDueDate">&nbsp;</div>
+                              </td>
+                               <td data-label="InvoiceDate">
+                                   <div class="slds-truncate" title="InvoiceDate" id="InvoiceDate">&nbsp;</div>
+                               </td>
+                              <td data-label="Status">
+                                 <div class="slds-truncate" title="Status" id="Status">&nbsp;</div>
+                              </td>
+                              <td data-label="Action">
+                                <div class="slds-col slds-no-flex slds-align-middle slds-truncate" title="Action" id="Action">
+									<div class="slds-button-group" role="group" id="EPaybuttons">
+									   <button class="slds-button slds-button--neutral" id='Submit' onclick="submitInvoice();">Submit</button>
+								   </div>
+								 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <footer role="contentinfo" class="slds-p-around--large">
+            <div class="slds-grid slds-grid--align-spread">
+               <p class="slds-col">&nbsp;</p>
+               <p class="slds-col">&copy; Powered by VGCLOUD</p>
+            </div>
+         </footer>
+      </div>
+    </body>
+      <script type="text/javascript" src="https://na24.salesforce.com/canvas/sdk/js/38.0/canvas-all.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+	  <script>
+	        var sr;
+			var oauthtoken;
+			var oauthclient;
+            $(document).ready(function(){
+			
+			});
+			function loginHandler(e) {
+				var uri = <%- JSON.stringify(authURL,undefined,2) %>;
+				var clientId = <%- JSON.stringify(clientId,undefined,2) %>;
+				console.log(uri);
+				console.log(clientId);
+				if (! Sfdc.canvas.oauth.loggedin()) {
+					Sfdc.canvas.oauth.login(
+						{uri : uri,
+							params: {
+								response_type : "token",
+								client_id : clientId,
+								immediate : "false",
+								redirect_uri : encodeURIComponent(
+									"https://vgcloud-canvas-ui.herokuapp.com/oauth/callback")
+							}});				
+				}
+				else {
+					Sfdc.canvas.oauth.logout();
+					Sfdc.canvas.byId("oauth").innerHTML = "";
+				}
+				return false;
+			}	
+			
+			// Bootstrap the page once the DOM is ready.
+			Sfdc.canvas(function() {
+				// On Ready...
+				var loggedIn = Sfdc.canvas.oauth.loggedin();
+				if (loggedIn) {
+				    console.log('oauth token :'+Sfdc.canvas.oauth.token());
+					oauthtoken = Sfdc.canvas.oauth.token();
+					oauthclient = Sfdc.canvas.oauth.client();
+					Sfdc.canvas.client.ctx(contextCallback, Sfdc.canvas.oauth.client());
+					
+				}
+				loginHandler();
+				
+			});
+			
+			function contextCallback(msg){
+				if(msg.status !== 200){
+				  console.log (msg.status);
+				  return;
+				}
+				else{
+					var context = JSON.stringify(msg.payload, undefined, 2);
+					console.log (context);
+					sr = msg.payload;
+					 $('#personName').text(sr.user.fullName);
+					 $('#InvoiceNumber').html(sr.environment.parameters.Invoice_Number__c);
+					 $('#Buyer').html(sr.environment.parameters.Account__r.Name);
+					 $('#Seller').html(sr.environment.parameters.Seller_Account__r.Name);
+					 //$('#InitiatedBy').html(sr.environment.parameters.Initiated_By__c);
+					 $('#Amount').html(sr.environment.parameters.Amount__c);
+					 $('#Status').html(sr.environment.parameters.Status__c);
+					 $('#InvoiceId').html(sr.environment.parameters.Id);
+					 $('#Currency').html(sr.environment.parameters.Custom_Currency__c);
+					 $('#InvoiceDueDate').html(sr.environment.parameters.Due_Date__c);
+					 $('#InvoiceDate').html(sr.environment.parameters.Acknowledged_Date__c);
+					 Sfdc.canvas.byId("oauth").innerHTML = oauthtoken.substring(1,40) + "…";
+				}
+			}
+			
+			function submitInvoice(){
+			   $('#Submit').hide();
+			   $('#EPaybuttons').html('Record Submitted');
+				 
+				 console.log('event generated in heroku app');
+				 // Publish the record submission event with the specified payload.
+				 Sfdc.canvas.client.publish(oauthclient,
+						 {name : "EPAY.recordSubmission", payload : {recId : sr.environment.parameters.Id}});
+			 }
+			
+	</script>
+</html>
