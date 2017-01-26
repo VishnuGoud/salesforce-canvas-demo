@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 5000;
 //SF app secret
 var SF_CANVASAPP_CLIENT_ID = process.env.SF_CANVASAPP_CLIENT_ID;
 var SF_CANVASAPP_AUTHURL = process.env.SF_CANVASAPP_AUTHURL;
+var SF_CANVASAPP_CALLBACK = process.env.SF_CANVASAPP_CALLBACKURL;
 
 app.configure(function() {
     app.use('/assets',express.static(__dirname + '/assets'));
@@ -27,7 +28,7 @@ app.configure(function() {
 app.get('/',function(req,res){
     //Block user logging in directly
 	//res.sendfile('views/error.html');
-	res.render('error',{authURL : SF_CANVASAPP_AUTHURL, clientId : SF_CANVASAPP_CLIENT_ID});
+	res.render('error',{authURL : SF_CANVASAPP_AUTHURL, clientId : SF_CANVASAPP_CLIENT_ID, callbackURI : SF_CANVASAPP_CALLBACK});
 });
 
 app.get('/oauth/callback',function(req,res){
