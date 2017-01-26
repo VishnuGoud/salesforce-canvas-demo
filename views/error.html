@@ -159,8 +159,11 @@
 			function loginHandler(e) {
 				var uri = <%- JSON.stringify(authURL,undefined,2) %>;
 				var clientId = <%- JSON.stringify(clientId,undefined,2) %>;
+				var callbackURI = <%- JSON.stringify(callbackURI,undefined,2) %>;
+				
 				console.log(uri);
 				console.log(clientId);
+				console.log(callbackURI);
 				if (! Sfdc.canvas.oauth.loggedin()) {
 					Sfdc.canvas.oauth.login(
 						{uri : uri,
@@ -168,8 +171,7 @@
 								response_type : "token",
 								client_id : clientId,
 								immediate : "false",
-								redirect_uri : encodeURIComponent(
-									"https://vgcloud-canvas-ui.herokuapp.com/oauth/callback")
+								redirect_uri : encodeURIComponent(callbackURI)
 							}});				
 				}
 				else {
