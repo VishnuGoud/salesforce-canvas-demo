@@ -31,6 +31,8 @@ app.get('/',function(req,res){
 	res.render('error',{authURL : SF_CANVASAPP_AUTHURL, clientId : SF_CANVASAPP_CLIENT_ID, callbackURI : SF_CANVASAPP_CALLBACK});
 });
 
+console.log('!!!!!!!!!');
+
 app.get('/oauth/callback',function(req,res){
     //Block user logging in directly
 	res.sendfile('views/oauthcallback.html');
